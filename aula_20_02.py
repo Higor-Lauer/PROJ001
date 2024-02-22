@@ -46,12 +46,16 @@ lampada_qt = Lampadas('Incandescente', 110, 'Amarela', 900, 'Desligada')
 lampada_cz = Lampadas('LED', 220, 'Azul', 2400, 'Ligada')
 
 def estado_lampada(self):
-    return print("\nA lâmpada é do tipo: ", self.tipo), print('Voltagem: ',self.voltagem,' volts'), print('Cor: ',self.cor), print('Lumens: ',self.lumens), print('A lâmpada está ', self.status)
+    print("\nA lâmpada é do tipo: ", self.tipo), 
+    print('Voltagem: ',self.voltagem,' volts'), 
+    print('Cor: ',self.cor), 
+    print('Lumens: ',self.lumens), 
+    print('A lâmpada está ', self.status)
 
 estado_lampada(lampada_sl)
 estado_lampada(lampada_qt)
 estado_lampada(lampada_cz)
-''' 
+'''
 
 '''
 class ContaCorrente:
