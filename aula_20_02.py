@@ -75,3 +75,21 @@ class Usuario:
         self.idade = idade
         self.id = id
 '''
+
+#Definindo atributos de instância privados de uma classe
+'''
+class LoginIntranet:
+    def __init__(self, email, senha):
+        self.__email = email
+        self.__senha = senha
+
+usuario = LoginIntranet('teste@gmail.com', '123456')
+
+#print(usuario.__senha)
+#print(usuario.__email)
+
+#print(dir(usuario))
+
+print(f'\nO e-mail do usuário é: {usuario._LoginIntranet__email}')
+print(f'A senha do usuário é: {usuario._LoginIntranet__senha}\n')
+'''
