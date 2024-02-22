@@ -93,3 +93,111 @@ usuario = LoginIntranet('teste@gmail.com', '123456')
 print(f'\nO e-mail do usuário é: {usuario._LoginIntranet__email}')
 print(f'A senha do usuário é: {usuario._LoginIntranet__senha}\n')
 '''
+
+#Definindo uma classe e métodos para acessar seus atributos de instância público ou privado de fora da classe
+'''
+class LoginIntranetDois:
+    def __init__(self, email, senha):
+        self.email = email
+        self.__senha = senha
+
+    def mostra_email(self):
+        print(self.email)
+    
+    def mostra_senha(self):
+        print(self.__senha)
+
+usuario_dois = LoginIntranetDois('two@gmail.com', 'senhabraba2')
+
+usuario_dois.mostra_email()
+
+usuario_dois.mostra_senha()
+
+usuario_tres = LoginIntranetDois('three@gmail.com', 'senhabraba3')
+
+usuario_quatro = LoginIntranetDois('four@gmail.com', 'senhabraba4')
+
+usuario_cinco = LoginIntranetDois('five@gmail.com', 'senhabraba5')
+
+usuario_seis = LoginIntranetDois('six@gmail.com', 'senhabraba6')
+
+usuario_tres.mostra_email()
+usuario_tres.mostra_senha()
+
+usuario_quatro.mostra_email()
+usuario_quatro.mostra_senha()
+
+usuario_cinco.mostra_email()
+usuario_cinco.mostra_senha()
+
+usuario_seis.mostra_email()
+usuario_seis.mostra_senha()
+'''
+
+'''
+class Produto:
+    imposto = 1.08
+
+    def __init__(self, descricao, cor, marca, tela, valor):
+        self.descricao = descricao
+        self.cor = cor
+        self.marca = marca
+        self.tela = tela
+        self.valor = (valor * Produto.imposto)
+
+    def mostra_na_tela(self):
+        print(self.descricao)
+        print(self.cor)
+        print(self.marca)
+        print(self.tela)
+        print(self.valor)
+
+produto1 = Produto('Notebook Gamer', 'Preto', 'Dell', 'Monitor 15', 13542.25)
+produto2 = Produto('Magic Mouse 2 A1657', 'Branco', 'Apple', '2,16 X 5,71 cm', 675.00)
+
+produto1.mostra_na_tela()
+print()
+produto2.mostra_na_tela()
+'''
+
+'''
+class Produto:
+    imposto = 1.12
+    contador = 0
+
+    def __init__(self, descricao, cor, marca, tela, valor):
+        self.id = Produto.contador + 1
+        self.descricao = descricao
+        self.cor = cor
+        self.marca = marca
+        self.tela = tela
+        self.valor = (valor * Produto.imposto)
+        Produto.contador = self.id
+
+    def mostra_na_tela(self):
+        print(self.id)
+        print(self.descricao)
+        print(self.cor)
+        print(self.marca)
+        print(self.tela)
+        print(self.valor)
+
+produto1 = Produto('Notebook Gamer', 'Preto', 'Dell', 'Monitor 15', 13542.25)
+produto2 = Produto('Magic Mouse 2 A1657', 'Branco', 'Apple', '2,16 X 5,71 cm', 675.00)
+produto1.peso = '5 Kg'
+produto2.peso = '900 gr'
+
+produto1.mostra_na_tela()
+print(f'Peso: {produto1.peso}')
+print()
+produto2.mostra_na_tela()
+print(f'Peso: {produto2.peso}')
+
+print('\n',dir(produto1))
+print('\n',dir(produto2))
+
+del produto2.tela
+del produto2.peso
+
+print('\n',dir(produto2))
+'''
