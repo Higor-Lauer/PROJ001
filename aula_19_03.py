@@ -252,3 +252,116 @@ livro_2 = Livros('Branca de Neve', 'Robson', 12)
 print(f'\nLivro: {livro_1}')
 print(f'\nLivro: {livro_2}')
 '''
+'''
+class Livros:
+    def __init__(self, titulo, autor, paginas):
+        self.__titulo = titulo
+        self.__autor = autor
+        self.__paginas = paginas
+    
+    def __len__(self):
+        return len(self.__titulo)
+
+livro_1 = Livros('Python: Muito texto', 'Rafael Lanches', 225)
+livro_2 = Livros('Branca de Neve', 'Robson', 12)
+
+print(f'\nO tamanho do título do Livro_1 é:', livro_1)
+print(f'\nO tamanho do título do Livro_1 é:', len(livro_2))
+'''
+'''
+class Livros:
+    def __init__(self, titulo, autor, paginas):
+        self.__titulo = titulo
+        self.__autor = autor
+        self.__paginas = paginas
+    
+    def __del__(self):
+        print(f'\nO objeto do tipo livro foi apagado da memória')
+
+livro_1 = Livros('Python: Muito texto', 'Rafael Lanches', 225)
+livro_2 = Livros('Branca de Neve', 'Robson', 12)
+
+del livro_1
+del livro_2
+'''
+'''
+class Livros:
+    def __init__(self, titulo, autor, paginas):
+        self.__titulo = titulo
+        self.__autor = autor
+        self.__paginas = paginas
+    
+    def __str__(self):
+        return self.__titulo
+    
+    def __add__(self, segundo_objeto):
+        return f'Título livro_1: {self} - Título livro_2: {segundo_objeto}'
+
+livro_1 = Livros('Python: Muito texto', 'Rafael Lanches', 225)
+livro_2 = Livros('Branca de Neve', 'Robson', 12)
+
+print(livro_1+livro_2)
+'''
+'''
+class Livros:
+    def __init__(self, titulo, autor, paginas):
+        self.__titulo = titulo
+        self.__autor = autor
+        self.__paginas = paginas
+    
+    def __str__(self):
+        return self.__titulo
+    
+    def __mul__(self, numero):
+        if isinstance(numero, int):
+            mensagem = ''
+            for n in range(numero):
+                mensagem += '-'+str(self)
+            return mensagem
+        return 'Não foi possível multiplicar'
+    
+livro_1 = Livros('Python: Muito texto', 'Rafael Lanches', 225)
+
+print('\n',livro_1 * 3)
+print('\n', livro_1 * 'abc')
+'''
+
+import datetime
+'''
+print(datetime.MAXYEAR)
+print(datetime.MINYEAR)
+'''
+'''
+print()
+print(datetime.datetime.now())
+'''
+''''
+print(repr(datetime.datetime.now))
+'''
+'''
+inicio = datetime.datetime.now()
+print('Data e hora capturada pela variável início: ', inicio)
+
+print()
+inicio = inicio.replace(year=2026, hour=16, minute=0, second=0, microsecond=0)
+print('Data e horas alteradas na variável:',inicio)
+
+print()
+print('Data e hora atual:', datetime.datetime.now())
+'''
+'''
+evento = datetime.datetime(2019, 1, 1, 0)
+
+print(evento)
+print(type(evento))
+print(type('31/12/2018'))
+
+data = input('Informe sua data de nascimento (dd/mm/yyyy):')
+
+data = data.split('/')
+data = datetime.datetime(int(data[2]), int(data[1]), int(data[0]))
+
+print()
+print(data)
+print(type(data))
+'''
