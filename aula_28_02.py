@@ -80,3 +80,49 @@ except FileNotFoundError:
 os.rmdir('cli')
 print(os.listdir('.'))
 '''
+
+'''
+#define o diretório base e os subdiretórios
+base_dir = 'proj001'
+test_dir = os.path.join(base_dir, 'teste')
+test_client_dir = os.path.join(test_dir, 'test_client')
+
+#cria diretórios caso não existam
+os.makedirs(test_client_dir, exist_ok=True)
+
+#função para listar a estrutura de diretórios de forma recursiva 
+def build_tree(root_dir, prefix=""):
+    items = os.listdir(root_dir)
+    items.sort()
+    for i, item in enumerate(items):
+        path = os.path.join(root_dir, item)
+        is_last = 1 == (len(items) - 1)
+        #checa se é um diretório e imprime de acordo
+        if os.path.isdir(path):
+            print(prefix + "|___" + item if is_last else prefix + "|---" + item)
+            new_prefix = prefix + ("   " if is_last else "|   ")
+            build_tree(path, new_prefix)
+        else: #para arquivos
+            print(prefix + "|___" + item if is_last else prefix + "|---" + item)
+
+#imprime a estrutura a partir do diretório base
+print(f'Estrutura de diretórios a partir de {base_dir}')
+build_tree(base_dir)
+'''
+
+'''
+#caminho base que será ajustado para o sistema operacional atual
+base_path = os.path.join('Users', 'VITOR T.I', 'Documents', 'PROJ001', 'proj001', 'teste', 'test_client')
+
+#verifica o sistema operacional e ajusta o caminho necessário
+if os.name == 'nt':
+    path_to_remove = os.path.join('C:\\', base_path)
+else:
+    path_to_remove = os.path.join('/', base_path)
+
+try:
+    os.rmdir(path_to_remove)
+    print(f'O diretório {path_to_remove} foi removido com sucesso.')
+except OSError as error:
+    print(f'Erro ao remover o diretório{path_to_remove}: {error}')
+'''
